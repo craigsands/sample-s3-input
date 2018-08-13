@@ -46,6 +46,7 @@ package:
 #    - include-me-dir/**
     - venv/Lib/site-packages/**
     - myapp/
+    - stats.json
 #  exclude:
 #    - exclude-me.py
 #    - exclude-me-dir/**

@@ -36,12 +36,17 @@ def main(event, context):
 
 
 def now(event, context):
+    stats = dict()
+    with open('stats.json') as f:
+        stats = json.load(f)
+
     return {
         "statusCode": 200,
         "body": json.dumps({
             "message": "The current time is %s" % app.now(),
             "input": event,
-            "s3_bucket": os.environ.get('S3_BUCKET_NAME')
+            "s3_bucket": os.environ.get('S3_BUCKET_NAME'),
+            "stats": stats
         })
     }
 
