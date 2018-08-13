@@ -59,6 +59,9 @@ functions:
           event: s3:ObjectCreated:*
           rules:
             - suffix: .json
+      - http:
+          path: trigger
+          method: get
   timestamp:
     handler: handler.now
     events:

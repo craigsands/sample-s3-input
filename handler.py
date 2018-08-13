@@ -24,11 +24,12 @@ def main(event, context):
             logging.info('s3_object_key: %s' % s3_object_key)
 
             response = s3.get_object(Bucket=s3_bucket_name, Key=s3_object_key)
-            print(json.loads(response['Body'].read()))
+            data = (json.loads(response['Body'].read()))
+            print(data)
 
     except ClientError as ex:
         if ex.response['Error']['Code'] == 'NoSuchKey':
-            logging.info('No existing state file found')
+            logging.info('No existing file found')
         raise ex
 
     #print("Your numpy array: %s" % numpy.arange(15).reshape(3, 5))
